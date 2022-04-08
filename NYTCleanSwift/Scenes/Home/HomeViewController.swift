@@ -13,16 +13,28 @@
 import UIKit
 
 protocol HomeDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Home.Something.ViewModel)
-//    func displaySomethingElse(viewModel: Home.SomethingElse.ViewModel)
+    func displayArticles(viewModel: Home.GetArticles.ViewModel)
 }
 
 class HomeViewController: UITableViewController, HomeDisplayLogic {
-  var interactor: HomeBusinessLogic?
-  var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    var interactor: HomeBusinessLogic?
+    var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    var viewModel: Home.GetArticles.ViewModel? {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+
+                self.activityIndicator.removeFromSuperview()
+                self.activityIndicator.frame = .zero
+                self.tableView.reloadData()
+            }
+        }
+    }
 
     // MARK: IBOutlets
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+
 
     // MARK: Object lifecycle
 
@@ -35,7 +47,7 @@ class HomeViewController: UITableViewController, HomeDisplayLogic {
         super.init(coder: aDecoder)
         setup()
     }
-  
+
     // MARK: - Setup Clean Code Design Pattern
 
     private func setup() {
@@ -49,60 +61,110 @@ class HomeViewController: UITableViewController, HomeDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
-  }
+    }
 
-  // MARK: - Routing
+    // MARK: - Routing
 
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if let scene = segue.identifier {
-          let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-          if let router = router, router.responds(to: selector) {
-              router.perform(selector, with: segue)
-          }
-      }
-  }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
 
     // MARK: - View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
-//        doSomethingElse()
+
+        addShadowToNavBar()
+        setUpActivityIndicator()
     }
 
-    //MARK: - receive events from UI
-    //@IBOutlet weak var nameTextField: UITextField!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getArticles()
+    }
 
-//    @IBAction func cancelButtonTapped(_ sender: Any) {
-//        
-//    }
-//    
-//    @IBAction func confirmButtonTapped(_ sender: Any) {
-//    
-//    }
-//    
+
+    // MARK: UI Tweaks
+
+    private func addShadowToNavBar() {
+
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
+        self.navigationController?.navigationBar.layer.shadowRadius = 3.0
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        self.navigationController?.navigationBar.layer.shadowPath = UIBezierPath(rect: (self.navigationController?.navigationBar.bounds)!).cgPath
+        self.navigationController?.navigationBar.layer.shouldRasterize = true
+        self.navigationController?.navigationBar.layer.rasterizationScale = UIScreen.main.scale
+
+    }
+
+    func setUpActivityIndicator() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.heightAnchor.constraint(equalTo: view.heightAnchor),
+            activityIndicator.widthAnchor.constraint(equalTo: view.widthAnchor)
+
+        ])
+
+    }
+
 
     // MARK: - request data from HomeInteractor
 
     //@IBOutlet weak var nameTextField: UITextField!
 
-    func doSomething() {
-        let request = Home.Something.Request()
-        interactor?.doSomething(request: request)
+    func getArticles() {
+        let request = Home.GetArticles.Request()
+        interactor?.getArticles(request: request)
     }
-//
-//    func doSomethingElse() {
-//        let request = Home.SomethingElse.Request()
-//        interactor?.doSomethingElse(request: request)
-//    }
+
 
     // MARK: - display view model from HomePresenter
 
-    func displaySomething(viewModel: Home.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayArticles(viewModel: Home.GetArticles.ViewModel) {
+        self.viewModel = viewModel
+
     }
-//
-//    func displaySomethingElse(viewModel: Home.SomethingElse.ViewModel) {
-//        // do sometingElse with viewModel
-//    }
+
+    // MARK: Table Methods
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel?.resultResponse.numResults ?? 0
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "article", for: indexPath) as! ArticlesTableViewCell
+        if let article = viewModel?.resultResponse.results[indexPath.section] {
+            DispatchQueue.main.async {
+                cell.titleLabel.text = article.title
+                cell.authorLabel.text = article.byline
+                cell.dateLabel.text = article.published_date
+
+            }
+
+        }
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+//        vc.resultVM = resultListVM?.articleAt(indexPath.section)
+        navigationController?.pushViewController(vc, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
 }

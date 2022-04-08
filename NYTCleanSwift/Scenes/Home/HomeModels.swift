@@ -16,7 +16,7 @@ enum Home
 {
     // MARK: Use cases
 
-    enum Something
+    enum GetArticles
     {
         struct Request
         {
@@ -25,30 +25,13 @@ enum Home
 
         struct Response
         {
-
+            let resultResponse: ResultResponse
         }
 
         struct ViewModel
         {
-
+            let resultResponse: ResultResponse
         }
     }
-    
-//    enum SomethingElse
-//    {
-//        struct Request
-//        {
-//
-//        }
-//
-//        struct Response
-//        {
-//
-//        }
-//
-//        struct ViewModel
-//        {
-//
-//        }
-//    }
 }
+

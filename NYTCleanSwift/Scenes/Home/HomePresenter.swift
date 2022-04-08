@@ -13,7 +13,7 @@
 import UIKit
 
 protocol HomePresentationLogic {
-    func presentSomething(response: Home.Something.Response)
+    func presentArticles(response: Home.GetArticles.Response)
 }
 
 class HomePresenter: HomePresentationLogic {
@@ -21,13 +21,9 @@ class HomePresenter: HomePresentationLogic {
 
     // MARK: Parse and calc respnse from HomeInteractor and send simple view model to HomeViewController to be displayed
 
-    func presentSomething(response: Home.Something.Response) {
-        let viewModel = Home.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentArticles(response: Home.GetArticles.Response) {
+        let viewModel = Home.GetArticles.ViewModel(resultResponse: response.resultResponse)
+        viewController?.displayArticles(viewModel: viewModel)
     }
-//
-//    func presentSomethingElse(response: Home.SomethingElse.Response) {
-//        let viewModel = Home.SomethingElse.ViewModel()
-//        viewController?.displaySomethingElse(viewModel: viewModel)
-//    }
+
 }

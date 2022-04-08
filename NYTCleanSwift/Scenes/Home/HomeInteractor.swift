@@ -13,7 +13,7 @@
 import UIKit
 
 protocol HomeBusinessLogic {
-    func doSomething(request: Home.Something.Request)
+    func getArticles(request: Home.GetArticles.Request)
 //    func doSomethingElse(request: Home.SomethingElse.Request)
 }
 
@@ -23,24 +23,30 @@ protocol HomeDataStore {
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
-    var worker: HomeWorker?
+
     //var name: String = ""
 
     // MARK: Do something (and send response to HomePresenter)
 
-    func doSomething(request: Home.Something.Request) {
-        worker = HomeWorker()
-        worker?.doSomeWork()
+    func getArticles(request: Home.GetArticles.Request) {
 
-        let response = Home.Something.Response()
-        presenter?.presentSomething(response: response)
+        // fetch data
+
+
+        NYTService.shared.getArticles(with: NYTService.baseUrlString) {[weak self] result in
+
+            do {
+                let resultResponse = try result.get()
+                let response = Home.GetArticles.Response(resultResponse: resultResponse)
+                self?.presenter?.presentArticles(response: response)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+
+        }
+
+
     }
-//
-//    func doSomethingElse(request: Home.SomethingElse.Request) {
-//        worker = HomeWorker()
-//        worker?.doSomeOtherWork()
-//
-//        let response = Home.SomethingElse.Response()
-//        presenter?.presentSomethingElse(response: response)
-//    }
-}
+
+
