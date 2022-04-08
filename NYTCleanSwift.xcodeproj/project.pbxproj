@@ -123,7 +123,7 @@
 		F78D5B9828000EF500C7696F /* NYTCleanSwift */ = {
 			isa = PBXGroup;
 			children = (
-				F78D5BDE2800129D00C7696F /* Details */,
+				F78D5BEB280012E800C7696F /* Scenes */,
 				F78D5BCF28000FE700C7696F /* Custom Cells */,
 				F78D5B9928000EF600C7696F /* AppDelegate.swift */,
 				F78D5B9B28000EF600C7696F /* SceneDelegate.swift */,
@@ -131,7 +131,6 @@
 				F78D5BCB28000F5A00C7696F /* LaunchScreen.storyboard */,
 				F78D5BC928000F5A00C7696F /* Main.storyboard */,
 				F78D5BA728000EF900C7696F /* Info.plist */,
-				F78D5BDC2800113000C7696F /* Home */,
 			);
 			path = NYTCleanSwift;
 			sourceTree = "<group>";
@@ -185,6 +184,15 @@
 				F78D5BE4280012B800C7696F /* DetailsInteractor.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		F78D5BEB280012E800C7696F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F78D5BDC2800113000C7696F /* Home */,
+				F78D5BDE2800129D00C7696F /* Details */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
