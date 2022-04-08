@@ -158,7 +158,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="VQe-7A-raK"/>
                     <connections>
-                        <outlet property="detailsLabel" destination="Cqc-SB-rD9" id="4vP-X6-gEN"/>
+                        <outlet property="abstractTextField" destination="Cqc-SB-rD9" id="kE0-aD-Dry"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="af3-Xf-Lws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
