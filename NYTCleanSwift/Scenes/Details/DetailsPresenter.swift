@@ -13,7 +13,7 @@
 import UIKit
 
 protocol DetailsPresentationLogic {
-    func presentSomething(response: Details.Something.Response)
+//    func presentSomething(response: Details.Something.Response)
 }
 
 class DetailsPresenter: DetailsPresentationLogic {
@@ -21,10 +21,10 @@ class DetailsPresenter: DetailsPresentationLogic {
 
     // MARK: Parse and calc respnse from DetailsInteractor and send simple view model to DetailsViewController to be displayed
 
-    func presentSomething(response: Details.Something.Response) {
-        let viewModel = Details.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
-    }
+//    func presentSomething(response: Details.Something.Response) {
+//        let viewModel = Details.Something.ViewModel()
+//        viewController?.displaySomething(viewModel: viewModel)
+//    }
 //
 //    func presentSomethingElse(response: Details.SomethingElse.Response) {
 //        let viewModel = Details.SomethingElse.ViewModel()

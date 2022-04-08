@@ -14,7 +14,7 @@ import UIKit
 
 protocol DetailsDisplayLogic: AnyObject
 {
-    func displaySomething(viewModel: Details.Something.ViewModel)
+//    func displaySomething(viewModel: Details.Something.ViewModel)
 //    func displaySomethingElse(viewModel: Details.SomethingElse.ViewModel)
 }
 
@@ -22,7 +22,10 @@ class DetailsViewController: UIViewController, DetailsDisplayLogic {
     var interactor: DetailsBusinessLogic?
     var router: (NSObjectProtocol & DetailsRoutingLogic & DetailsDataPassing)?
 
-    // MARK: Object lifecycle
+    var abstract: String?
+
+    @IBOutlet weak var abstractTextField: UILabel!
+        // MARK: Object lifecycle
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -51,20 +54,21 @@ class DetailsViewController: UIViewController, DetailsDisplayLogic {
 
     // MARK: - Routing
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let scene = segue.identifier {
+//            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+//            if let router = router, router.responds(to: selector) {
+//                router.perform(selector, with: segue)
+//            }
+//        }
+//    }
 
     // MARK: - View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        abstractTextField.text = abstract
+//        doSomething()
 //        doSomethingElse()
     }
     
@@ -82,23 +86,11 @@ class DetailsViewController: UIViewController, DetailsDisplayLogic {
     
     // MARK: - request data from DetailsInteractor
 
-    func doSomething() {
-        let request = Details.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-//
-//    func doSomethingElse() {
-//        let request = Details.SomethingElse.Request()
-//        interactor?.doSomethingElse(request: request)
+//    func doSomething() {
+//        let request = Details.Something.Request()
+//        interactor?.doSomething(request: request)
 //    }
 
     // MARK: - display view model from DetailsPresenter
 
-    func displaySomething(viewModel: Details.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
-    }
-//
-//    func displaySomethingElse(viewModel: Details.SomethingElse.ViewModel) {
-//        // do sometingElse with viewModel
-//    }
 }

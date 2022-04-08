@@ -31,8 +31,8 @@ class DetailsInteractor: DetailsBusinessLogic, DetailsDataStore {
     func doSomething(request: Details.Something.Request) {
 
 
-        let response = Details.Something.Response()
-        presenter?.presentSomething(response: response)
+//        let response = Details.Something.Response()
+//        presenter?.presentSomething(response: response)
     }
 //
 //    func doSomethingElse(request: Details.SomethingElse.Request) {
