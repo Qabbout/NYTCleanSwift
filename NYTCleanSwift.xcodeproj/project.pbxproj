@@ -22,7 +22,6 @@
 		F78D5BDA2800112100C7696F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BD42800112100C7696F /* HomeViewController.swift */; };
 		F78D5BDB2800112100C7696F /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BD52800112100C7696F /* HomeInteractor.swift */; };
 		F78D5BE5280012B800C7696F /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BDF280012B700C7696F /* DetailsPresenter.swift */; };
-		F78D5BE6280012B800C7696F /* DetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BE0280012B700C7696F /* DetailsWorker.swift */; };
 		F78D5BE7280012B800C7696F /* DetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BE1280012B700C7696F /* DetailsRouter.swift */; };
 		F78D5BE8280012B800C7696F /* DetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BE2280012B700C7696F /* DetailsModels.swift */; };
 		F78D5BE9280012B800C7696F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BE3280012B700C7696F /* DetailsViewController.swift */; };
@@ -70,7 +69,6 @@
 		F78D5BD42800112100C7696F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F78D5BD52800112100C7696F /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		F78D5BDF280012B700C7696F /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
-		F78D5BE0280012B700C7696F /* DetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWorker.swift; sourceTree = "<group>"; };
 		F78D5BE1280012B700C7696F /* DetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRouter.swift; sourceTree = "<group>"; };
 		F78D5BE2280012B700C7696F /* DetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModels.swift; sourceTree = "<group>"; };
 		F78D5BE3280012B700C7696F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				F78D5BDF280012B700C7696F /* DetailsPresenter.swift */,
-				F78D5BE0280012B700C7696F /* DetailsWorker.swift */,
 				F78D5BE1280012B700C7696F /* DetailsRouter.swift */,
 				F78D5BE2280012B700C7696F /* DetailsModels.swift */,
 				F78D5BE3280012B700C7696F /* DetailsViewController.swift */,
@@ -359,7 +356,6 @@
 				F78D5BDA2800112100C7696F /* HomeViewController.swift in Sources */,
 				F78D5B9C28000EF600C7696F /* SceneDelegate.swift in Sources */,
 				F78D5BEF2800157A00C7696F /* Media.swift in Sources */,
-				F78D5BE6280012B800C7696F /* DetailsWorker.swift in Sources */,
 				F78D5BDB2800112100C7696F /* HomeInteractor.swift in Sources */,
 				F78D5BE5280012B800C7696F /* DetailsPresenter.swift in Sources */,
 				F78D5BF02800157A00C7696F /* ResultResponse.swift in Sources */,
