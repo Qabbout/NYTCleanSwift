@@ -23,14 +23,13 @@ protocol DetailsDataStore {
 
 class DetailsInteractor: DetailsBusinessLogic, DetailsDataStore {
     var presenter: DetailsPresentationLogic?
-    var worker: DetailsWorker?
+    
     //var name: String = ""
 
     // MARK: Do something (and send response to DetailsPresenter)
 
     func doSomething(request: Details.Something.Request) {
-        worker = DetailsWorker()
-        worker?.doSomeWork()
+
 
         let response = Details.Something.Response()
         presenter?.presentSomething(response: response)
