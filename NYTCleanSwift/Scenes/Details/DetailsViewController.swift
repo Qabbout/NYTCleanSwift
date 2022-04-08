@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol DetailsDisplayLogic: class
+protocol DetailsDisplayLogic: AnyObject
 {
     func displaySomething(viewModel: Details.Something.ViewModel)
 //    func displaySomethingElse(viewModel: Details.SomethingElse.ViewModel)

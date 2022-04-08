@@ -21,6 +21,9 @@ class HomeViewController: UITableViewController, HomeDisplayLogic {
   var interactor: HomeBusinessLogic?
   var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
 
+    // MARK: IBOutlets
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     // MARK: Object lifecycle
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
