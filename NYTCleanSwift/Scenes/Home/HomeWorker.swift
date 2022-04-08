@@ -1,5 +1,5 @@
 //
-//  HomeModels.swift
+//  HomeWorker.swift
 //  NYTCleanSwift
 //
 //  Created by Abdulrahman on 4/8/22.
@@ -12,25 +12,12 @@
 
 import UIKit
 
-enum Home
-{
-    // MARK: Use cases
-
-    enum GetArticles
-    {
-        struct Request
-        {
-
-        }
-
-        struct Response
-        {
-            let resultResponse: ResultResponse
-        }
-
-        struct ViewModel
-        {
-            let resultResponse: ResultResponse
-        }
+class HomeWorker {
+    func doSomeWork() {
+        
     }
+//    
+//    func doSomeOtherWork() {
+//
+//    }
 }
