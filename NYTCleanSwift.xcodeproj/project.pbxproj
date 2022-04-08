@@ -17,7 +17,6 @@
 		F78D5BCD28000F5A00C7696F /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BCA28000F5A00C7696F /* ArticlesTableViewCell.swift */; };
 		F78D5BCE28000F5A00C7696F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F78D5BCB28000F5A00C7696F /* LaunchScreen.storyboard */; };
 		F78D5BD62800112100C7696F /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BD02800112100C7696F /* HomePresenter.swift */; };
-		F78D5BD72800112100C7696F /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BD12800112100C7696F /* HomeWorker.swift */; };
 		F78D5BD82800112100C7696F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BD22800112100C7696F /* HomeRouter.swift */; };
 		F78D5BD92800112100C7696F /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BD32800112100C7696F /* HomeModels.swift */; };
 		F78D5BDA2800112100C7696F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BD42800112100C7696F /* HomeViewController.swift */; };
@@ -28,6 +27,10 @@
 		F78D5BE8280012B800C7696F /* DetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BE2280012B700C7696F /* DetailsModels.swift */; };
 		F78D5BE9280012B800C7696F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BE3280012B700C7696F /* DetailsViewController.swift */; };
 		F78D5BEA280012B800C7696F /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BE4280012B800C7696F /* DetailsInteractor.swift */; };
+		F78D5BEF2800157A00C7696F /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BED2800157A00C7696F /* Media.swift */; };
+		F78D5BF02800157A00C7696F /* ResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BEE2800157A00C7696F /* ResultResponse.swift */; };
+		F78D5BF328001A3B00C7696F /* NYTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D5BF228001A3B00C7696F /* NYTService.swift */; };
+		F7E75A882800339200F6A0ED /* Development.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F7E75A872800339200F6A0ED /* Development.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +65,6 @@
 		F78D5BCA28000F5A00C7696F /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
 		F78D5BCB28000F5A00C7696F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F78D5BD02800112100C7696F /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		F78D5BD12800112100C7696F /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		F78D5BD22800112100C7696F /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		F78D5BD32800112100C7696F /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		F78D5BD42800112100C7696F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,10 @@
 		F78D5BE2280012B700C7696F /* DetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModels.swift; sourceTree = "<group>"; };
 		F78D5BE3280012B700C7696F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		F78D5BE4280012B800C7696F /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
+		F78D5BED2800157A00C7696F /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		F78D5BEE2800157A00C7696F /* ResultResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultResponse.swift; sourceTree = "<group>"; };
+		F78D5BF228001A3B00C7696F /* NYTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTService.swift; sourceTree = "<group>"; };
+		F7E75A872800339200F6A0ED /* Development.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +129,13 @@
 		F78D5B9828000EF500C7696F /* NYTCleanSwift */ = {
 			isa = PBXGroup;
 			children = (
+				F78D5BF12800194500C7696F /* Services */,
+				F78D5BEC2800155C00C7696F /* Models */,
 				F78D5BEB280012E800C7696F /* Scenes */,
 				F78D5BCF28000FE700C7696F /* Custom Cells */,
 				F78D5B9928000EF600C7696F /* AppDelegate.swift */,
 				F78D5B9B28000EF600C7696F /* SceneDelegate.swift */,
+				F7E75A872800339200F6A0ED /* Development.xcconfig */,
 				F78D5BA228000EF900C7696F /* Assets.xcassets */,
 				F78D5BCB28000F5A00C7696F /* LaunchScreen.storyboard */,
 				F78D5BC928000F5A00C7696F /* Main.storyboard */,
@@ -168,7 +177,6 @@
 				F78D5BD42800112100C7696F /* HomeViewController.swift */,
 				F78D5BD52800112100C7696F /* HomeInteractor.swift */,
 				F78D5BD02800112100C7696F /* HomePresenter.swift */,
-				F78D5BD12800112100C7696F /* HomeWorker.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -193,6 +201,23 @@
 				F78D5BDE2800129D00C7696F /* Details */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F78D5BEC2800155C00C7696F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F78D5BED2800157A00C7696F /* Media.swift */,
+				F78D5BEE2800157A00C7696F /* ResultResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F78D5BF12800194500C7696F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F78D5BF228001A3B00C7696F /* NYTService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +326,7 @@
 			files = (
 				F78D5BA328000EF900C7696F /* Assets.xcassets in Resources */,
 				F78D5BCE28000F5A00C7696F /* LaunchScreen.storyboard in Resources */,
+				F7E75A882800339200F6A0ED /* Development.xcconfig in Resources */,
 				F78D5BCC28000F5A00C7696F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,13 +358,15 @@
 				F78D5B9A28000EF600C7696F /* AppDelegate.swift in Sources */,
 				F78D5BDA2800112100C7696F /* HomeViewController.swift in Sources */,
 				F78D5B9C28000EF600C7696F /* SceneDelegate.swift in Sources */,
+				F78D5BEF2800157A00C7696F /* Media.swift in Sources */,
 				F78D5BE6280012B800C7696F /* DetailsWorker.swift in Sources */,
-				F78D5BD72800112100C7696F /* HomeWorker.swift in Sources */,
 				F78D5BDB2800112100C7696F /* HomeInteractor.swift in Sources */,
 				F78D5BE5280012B800C7696F /* DetailsPresenter.swift in Sources */,
+				F78D5BF02800157A00C7696F /* ResultResponse.swift in Sources */,
 				F78D5BEA280012B800C7696F /* DetailsInteractor.swift in Sources */,
 				F78D5BD62800112100C7696F /* HomePresenter.swift in Sources */,
 				F78D5BE9280012B800C7696F /* DetailsViewController.swift in Sources */,
+				F78D5BF328001A3B00C7696F /* NYTService.swift in Sources */,
 				F78D5BE8280012B800C7696F /* DetailsModels.swift in Sources */,
 				F78D5BD92800112100C7696F /* HomeModels.swift in Sources */,
 			);
@@ -439,6 +467,7 @@
 		};
 		F78D5BBF28000EFA00C7696F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7E75A872800339200F6A0ED /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -493,6 +522,7 @@
 		};
 		F78D5BC128000EFA00C7696F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7E75A872800339200F6A0ED /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
